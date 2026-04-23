@@ -3,7 +3,7 @@
 @section('content')
     <div class="min-h-screen flex flex-col bg-white dark:bg-gray-900">
         <div
-            class="relative h-[108vh] w-full bg-[linear-gradient(to_bottom,#D9E7F6_43%,#B5CFED_100%)] dark:bg-[linear-gradient(to_bottom,#1E293B,#0F172A)]">
+            class="relative h-[108vh] w-full bg-[linear-gradient(to_bottom,#E4EBF1_43%,#B5CFED_100%)] dark:bg-[linear-gradient(to_bottom,#1E293B,#0F172A)]">
             {{-- Logo --}}
             <div class="pl-31 pt-22">
                 <img class="w-60" src="/images/logo/logo.png" />
