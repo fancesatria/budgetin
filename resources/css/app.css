@@ -886,7 +886,7 @@ pre[class*='language-'] {
 }
 
 .custom-cancel-btn {
-  @apply inline-flex items-center gap-2 rounded-lg border border-gray-300 bg-gray-500 px-4 py-3 text-theme-sm font-medium text-white shadow-theme-xs hover:bg-gray-600 hover:text-white/90 dark:border-gray-600 dark:bg-gray-600 dark:text-white dark:hover:bg-gray-500 dark:hover:text-white/90;
+  @apply inline-flex items-center gap-2 rounded-lg border border-gray-300 bg-gray-500 px-4 py-3 text-theme-sm font-medium text-white shadow-theme-xs hover:bg-gray-600 hover:text-white/90 dark:border-gray-600 dark:bg-gray-500 dark:text-white dark:hover:bg-gray-600 dark:hover:text-white/90;
 }
 
 .custom-popup {
@@ -904,12 +904,6 @@ pre[class*='language-'] {
 .swal2-container {
   @apply !bg-gray-400/50 backdrop-blur-[32px];
 }
-
-/* .swal2-popup,
-.swal2-backdrop-show {
-  animation: none !important;
-  transition: none !important;
-} */
 
 @keyframes my-swal-show {
   0% {
@@ -939,4 +933,8 @@ pre[class*='language-'] {
 
 .my-popup.hide {
   animation: my-swal-hide 0.2s ease forwards;
+}
+
+.swal2-actions {
+  @apply flex-row-reverse;
 }
