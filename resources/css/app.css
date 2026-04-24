@@ -901,8 +901,8 @@ pre[class*='language-'] {
   @apply text-black dark:text-white/90;
 }
 
-.swal2-container {
-  @apply !bg-gray-400/50 backdrop-blur-[32px];
+.swal2-center {
+  @apply !bg-gray-400/50 backdrop-blur-[32px] w-full h-full;
 }
 
 @keyframes my-swal-show {
