@@ -31,7 +31,7 @@
             }
         },
     }" @open-income-modal.window="openModal($event.detail)"
-        class="no-scrollbar relative w-full max-w-[700px] overflow-hidden rounded-3xl bg-white p-4 dark:bg-gray-900 lg:p-11">
+        class="no-scrollbar relative w-full max-w-[700px] max-h-[80vh] overflow-hidden rounded-3xl bg-white p-4 dark:bg-gray-900 lg:p-11">
         <div class="px-2 pr-14">
             <template x-if="mode === 'create'">
                 <div>
@@ -57,7 +57,7 @@
         </div>
 
         <form class="flex flex-col">
-            <div class="custom-scrollbar flex flex-col gap-5 overflow-y-auto max-h-[60vh] p-2">
+            <div class="custom-scrollbar max-h-[40vh] lg:max-h-[60vh] flex flex-col gap-5 overflow-y-auto p-2">
                 <div>
                     <label class="mb-1.5 block text-sm font-medium text-gray-700 dark:text-gray-400">
                         Income Title
@@ -68,8 +68,8 @@
                     </div>
                 </div>
 
-                <div class="flex flex-row gap-10">
-                    <div class="w-2/3">
+                <div class="flex lg:flex-row flex-col lg:gap-10 gap-5">
+                    <div class="lg:w-2/3">
                         <label class="mb-1.5 block text-sm font-medium text-gray-700 dark:text-gray-400">
                             Amount
                         </label>
@@ -84,7 +84,7 @@
                         </div>
                     </div>
 
-                    <div class="w-1/3">
+                    <div class="lg:w-1/3">
                         <label class="mb-1.5 block text-sm font-medium text-gray-700 dark:text-gray-400">
                             Account Bank
                         </label>
@@ -123,7 +123,7 @@
                     <label class="mb-1.5 block text-sm font-medium text-gray-700 dark:text-gray-400">
                         Date
                     </label>
-                    <div class="relative flex items-center gap-2">
+                    <div class="relative w-full">
                         <x-form.date-picker id="date_pick" name="date_pick" placeholder="Date Picker"
                             x-model="income.date" defaultDate="{{ now()->format('d-m-Y') }}" />
                     </div>

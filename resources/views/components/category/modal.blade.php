@@ -30,7 +30,7 @@
             });
         },
     }" @open-category-modal.window="openModal($event.detail)"
-        class="no-scrollbar relative w-full max-w-[700px] overflow-y-auto rounded-3xl bg-white p-4 dark:bg-gray-900 lg:p-11">
+        class="no-scrollbar relative w-full max-w-[700px] max-h-[80vh] overflow-y-auto rounded-3xl bg-white p-4 dark:bg-gray-900 lg:p-11">
         <div class="px-2 pr-14">
             <template x-if="mode === 'create'">
                 <div>
@@ -65,7 +65,7 @@
             @csrf
             @method('POST')
 
-            <div class="custom-scrollbar flex flex-col gap-5 overflow-y-auto p-2">
+            <div class="custom-scrollbar max-h-[40vh] lg:max-h-[60vh] flex flex-col gap-5 overflow-y-auto p-2">
                 <div>
                     <label class="mb-1.5 block text-sm font-medium text-gray-700 dark:text-gray-400">
                         Category Name
