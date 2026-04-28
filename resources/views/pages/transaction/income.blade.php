@@ -10,7 +10,7 @@
                 <x-income.table />
                 <x-income.pagination />
             </div>
-            <x-income.modal />
+            <x-income.modal :accounts="$accounts"/>
         </div>
     </div>
 @endsection
@@ -89,7 +89,7 @@
                     });
                 },
                 get totalEntries() {
-                    return this.incomes.length;
+                    return this.filteredIncomes.length;
                 },
                 get start() {
                     return this.totalEntries === 0 ? 0 : (this.currentPage - 1) * this.itemsPerPage + 1;
@@ -136,13 +136,13 @@
                     });
                 },
                 get filteredIncomes(){
-                    if(!this.search) return this.transfers;
+                    if(!this.search) return this.incomes;
 
-                    return this.transfers.filter(t => {
+                    return this.incomes.filter(t => {
                         return (
                             (t.description ?? '').toLowerCase().includes(this.search.toLowerCase()) ||
                             (t.title ?? '').toLowerCase().includes(this.search.toLowerCase()) ||
-                            (t.account_bank?.name ?? '').toLowerCase().includes(this.search.toLowerCase()) ||
+                            (t.toAccount?.name ?? '').toLowerCase().includes(this.search.toLowerCase()) ||
                             (t.amount ?? '').toString().includes(this.search) ||
                             (t.date ?? '').includes(this.search)
                         );
