@@ -55,7 +55,7 @@
                         <td
                             :class="index === paginatedincomes.length - 1 ? 'px-4 py-4 whitespace-nowrap' :
                                 'px-4 py-4 whitespace-nowrap border-b border-gray-200 dark:border-gray-700'">
-                            <div class="flex text-sm text-gray-900 dark:text-white gap-1" x-text="income.account_bank">
+                            <div class="flex text-sm text-gray-900 dark:text-white gap-1" x-text="income.to_account?.name">
                             </div>
                         </td>
                         <td
