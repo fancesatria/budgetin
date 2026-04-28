@@ -111,9 +111,9 @@ Route::middleware(['auth'])->group(function(){
     // Transaction
     Route::prefix('/income')->as('income.')->group(function(){
         Route::get('/', [IncomeController::class, 'index'])->name('index');
-        /*
-        Adriel's work field
-        */
+        Route::post('/create', [IncomeController::class, 'store'])->name('store');
+        Route::post('/update/{id}', [IncomeController::class, 'update'])->name('update');
+        Route::delete('/delete/{id}', [IncomeController::class, 'destroy'])->name('delete');
     });
 
     Route::prefix('/expense')->as('expense.')->group(function(){
@@ -136,7 +136,7 @@ Route::middleware(['auth'])->group(function(){
         Route::post('/update/{slug}', [CategoryController::class, 'update'])->name('update');
         Route::delete('/delete/{slug}', [CategoryController::class, 'destroy'])->name('delete');
     });
-    
+
     // Investment
     Route::get('/investment', [InvesmentController::class, 'index'])->name('investment');
 
