@@ -10,37 +10,37 @@
                         Total Target
                     </h3>
                     <span class="text-gray-800 dark:text-white/90 font-semibold text-xl md:text-2xl">
-                        IDR {{ number_format($datas['total_target'], 0, ',', '.') }}
+                        IDR {{ number_format($datas['summary']['total_target'], 0, ',', '.') }}
                     </span>
                 </div>
                 <div class="flex-1 flex flex-col gap-2">
                     <h3 class="text-gray-800 dark:text-white/90 font-normal text-theme-sm md:text-md">
-                        Total Investasi
+                        Total Investment
                     </h3>
                     <span class="text-gray-800 dark:text-white/90 font-semibold text-lg md:text-xl">
-                        IDR {{ number_format($datas['total_investment'], 0, ',', '.') }}
+                        IDR {{ number_format($datas['summary']['total_investment'], 0, ',', '.') }}
                     </span>
                 </div>
                 <div class="flex-1 flex flex-col gap-2">
                     <h3 class="text-gray-800 dark:text-white/90 font-normal text-theme-sm md:text-md">
-                        Sisa Target
+                        Remaining Target
                     </h3>
                     <span class="text-gray-800 dark:text-white/90 font-semibold text-lg md:text-xl">
-                        IDR {{ number_format($datas['remaining_target'], 0, ',', '.') }}
+                        IDR {{ number_format($datas['summary']['remaining_target'], 0, ',', '.') }}
                     </span>
                 </div>
             </div>
             <div class="flex flex-col pt-5 lg:pt-0 pb-5 lg:pb-0">
-                <div id="targetPieChart" class="flex" data-value="{{ $datas['percentage'] }}"></div>
+                <div id="targetPieChart" class="flex" data-value="{{ $datas['summary']['percentage'] }}"></div>
                 <div class="flex flex-col justify-center items-center">
                     <span class="text-sm font-medium text-gray-800 dark:text-white/90">IDR
-                        {{ number_format($datas['total_investment'], 0, ',', '.') }} / IDR
-                        {{ number_format($datas['total_target'], 0, ',', '.') }}</span>
+                        {{ number_format($datas['summary']['total_investment'], 0, ',', '.') }} / IDR
+                        {{ number_format($datas['summary']['total_target'], 0, ',', '.') }}</span>
                     <span class="text-xs text-gray-500 dark:text-gray-400">Total Target</span>
                 </div>
             </div>
             <div class="flex-1 flex flex-col border-t lg:border-t-0 lg:border-l pt-5 lg:pt-0 lg:pl-5 gap-6">
-                <h3 class="text-gray-800 dark:text-white/90 font-medium text-lg">Target Progress</h3>
+                <h3 class="text-gray-800 dark:text-white/90 font-semibold text-lg">Progress Target</h3>
                 <div class="overflow-x-auto pb-2">
                     <div class="flex flex-col gap-4 lg:gap-5">
                         @foreach ($datas['targets'] as $item)
@@ -53,13 +53,13 @@
                                 <div class="flex flex-1 items-center gap-4 min-w-0">
                                     <div
                                         class="relative flex-1 min-w-[100px] max-w-[300px] h-2 rounded-sm bg-gray-200 dark:bg-gray-800">
-                                        <div class="absolute left-0 top-0 flex h-full items-center justify-center rounded-sm bg-main text-xs font-medium text-white"
+                                        <div class="absolute left-0 top-0 flex h-full items-center justify-center rounded-sm bg-main"
                                             style="width: {{ $item->percentage }}%"></div>
                                     </div>
                                     <p
                                         class="text-theme-sm font-medium text-gray-800 dark:text-white/90 whitespace-nowrap">
-                                        IDR {{ number_format($item->current_amount, 0, ',', '.') }} / IDR
-                                        {{ number_format($item->target_amount, 0, ',', '.') }}
+                                        IDR {{ number_format($item->total_current, 0, ',', '.') }} / IDR
+                                        {{ number_format($item->total_target, 0, ',', '.') }}
                                     </p>
                                 </div>
                             </div>

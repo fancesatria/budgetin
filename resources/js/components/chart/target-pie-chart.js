@@ -1,5 +1,3 @@
-import { offset } from "@popperjs/core";
-
 export const pieChart = () => {
     const chartElement = document.querySelector('#targetPieChart');
 
@@ -41,10 +39,14 @@ export const pieChart = () => {
             },
             series: [value],
             colors: ['#097AEC'],
-            labels: ['Tercapai'],
+            labels: ['Progress'],
             stroke: {
                 lineCap: 'round'
-            }
+            },
+            fill: {
+    type: 'solid',
+    opacity: 1
+}
         }
 
         const chart = new ApexCharts(chartElement, option);

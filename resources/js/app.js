@@ -53,6 +53,9 @@ document.addEventListener('DOMContentLoaded', () => {
     if (document.querySelector('#targetPieChart')) {
         import('./components/chart/target-pie-chart').then(module => module.pieChart());
     }
+    if (document.querySelector('#allocationChart')) {
+        import('./components/chart/investment-allocation').then(module => module.allocationChart());
+    }
 
     // Calendar init
     if (document.querySelector('#calendar')) {
