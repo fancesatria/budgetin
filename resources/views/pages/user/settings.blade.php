@@ -70,14 +70,20 @@
                 </p>
             </div>
 
-            <button type="button" @click="$dispatch('open-delete-modal')"
-                class="rounded-lg border border-red-300 px-5 py-2 text-sm font-medium text-red-600 transition hover:bg-red-50 dark:border-red-800 dark:text-red-400 dark:hover:bg-red-500/10">
-                {{ __('settings.delete_account') }}
-            </button>
-            {{-- <a href="{{ route('settings.delete-account') }}" type="submit" data-confirm-delete="true"
-                class="rounded-lg border border-red-300 px-5 py-2 text-sm font-medium text-red-600 transition hover:bg-red-50 dark:border-red-800 dark:text-red-400 dark:hover:bg-red-500/10">
-                {{ __('settings.delete_account') }}
-            </a> --}}
+            @if(auth()->user()->google_id)
+                {{-- GOOGLE ACCOUNT --}}
+                <a href="{{ route('settings.delete-account.google') }}"
+                    class="rounded-lg border border-red-300 px-5 py-2 text-sm font-medium text-red-600 transition hover:bg-red-50 dark:border-red-800 dark:text-red-400 dark:hover:bg-red-500/10">
+                    {{ __('settings.delete_account') }}
+                </a>
+            @else
+                {{-- NORMAL ACCOUNT --}}
+                <button type="button"
+                    @click="$dispatch('open-delete-modal')"
+                    class="rounded-lg border border-red-300 px-5 py-2 text-sm font-medium text-red-600 transition hover:bg-red-50 dark:border-red-800 dark:text-red-400 dark:hover:bg-red-500/10">
+                    {{ __('settings.delete_account') }}
+                </button>
+            @endif
         </div>
 
     </div>
@@ -192,7 +198,6 @@
             </div>
 
             <form method="POST" action="{{ route('settings.delete-account') }}" class="flex flex-col gap-5">
-
                 @csrf
                 @method('DELETE')
                 {{-- <div> --}}

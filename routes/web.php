@@ -122,7 +122,9 @@ Route::middleware(['guest'])->group(function(){
     // Google OAuth
     Route::get('/auth/google', [GoogleController::class, 'redirect'])->name('auth.google');
     Route::get('/auth/google/callback', [GoogleController::class, 'callback'])->name('auth.google.callback');
+    
 });
+Route::get('/delete-account/google/callback', [SettingsController::class, 'deleteGoogleAccountCallback'])->name('delete-account.google.callback');
 
 Route::middleware(['auth'])->group(function(){
     // Dashboard
@@ -219,6 +221,8 @@ Route::middleware(['auth'])->group(function(){
         Route::get('/', [SettingsController::class, 'index'])->name('index');
         Route::post('/change-password', [SettingsController::class, 'changePassword'])->name('change-password');
         Route::delete('/delete-account', [SettingsController::class, 'deleteAccount'])->name('delete-account');
+        Route::get('/delete-account/google', [SettingsController::class, 'redirectToGoogleForDeletion'])->name('delete-account.google');
+        
     });
 
     Route::prefix('/profile')->as('profile.')->group(function(){
