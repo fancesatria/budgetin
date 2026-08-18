@@ -11,9 +11,13 @@ class ReportController extends Controller
 {
     public function index()
     {
-        $reports = Transaction::with(['category', 'account', 'toAccount'])
+        $reports = Transaction::with([
+            'category',
+            'fromAccount',
+            'toAccount'
+        ])
             ->where('user_id', auth()->id())
-            ->orderBy('date', 'desc')       
+            ->orderBy('date', 'desc')
             ->orderBy('created_at', 'desc')
             ->get();
 
