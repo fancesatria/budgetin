@@ -123,7 +123,7 @@ To run this project, you will need to create ```.env``` file in the root folder.
 
 ## License
 
-ZAPP! is licensed under [MIT](LICENSE)
+BudGetIn is licensed under [MIT](LICENSE)
 
 ## Contributing
 
